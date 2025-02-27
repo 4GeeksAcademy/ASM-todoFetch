@@ -70,6 +70,7 @@ const Home = () => {
 		}
 	}
 
+
 	
 	// una simple fuinción .filter para que borre la tarea cuando la queramos eliminar 
 	return (
@@ -78,7 +79,7 @@ const Home = () => {
 				<h1 className="mb-4">  Gestor de tareas</h1>
 				<Taskform onAddTask={addTasks} />
 				<TaskList tasks={tasks} onDelete={handleDelete} />
-				<button className="btn btn-danger mb-3">
+				<button className="btn btn-danger mb-3 ">
 					Limpiar todas las tareas
 				</button>
 			</div>
