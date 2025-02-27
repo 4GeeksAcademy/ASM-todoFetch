@@ -17,7 +17,7 @@ function Tasks(props) {
 
                     <div>
                         <h5>
-                            {props.task.title}
+                            {props.task.label}
                             {/* le paso la props de title para las tareas asi como abajo las id */}
                         </h5>
                         <p className="text-muted mb-0"> ID: {props.task.id} </p>
