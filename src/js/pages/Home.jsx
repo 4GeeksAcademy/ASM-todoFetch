@@ -70,20 +70,7 @@ const Home = () => {
 		}
 	}
 
-	const clearAllTask = async () => {
-		try {
-			const response = await fetch(`${API_URL}/users/${ID_USER}`, {
-				method: "DELETE",
-			});
-			if (!response.ok) {
-				throw new Error(`Error HTTP! Estado: ${response.status}`);
-			}
-			setTasks([]);			
-		} catch (error) {
-			console.error("Hubo un problema al eliminar las tareas:", error.message);
-		}
-	}
-	//vale aqui me costo impolementar el limpiar toas las ttareas pq la rua al menos que me funciona es esta y no la de todos/task.id pq eniendo que asi elimina odo lo que esta denro del usuario
+	
 	// una simple fuinción .filter para que borre la tarea cuando la queramos eliminar 
 	return (
 		<>
@@ -91,7 +78,7 @@ const Home = () => {
 				<h1 className="mb-4">  Gestor de tareas</h1>
 				<Taskform onAddTask={addTasks} />
 				<TaskList tasks={tasks} onDelete={handleDelete} />
-				<button className="btn btn-danger mb-3" onClick={clearAllTask}>
+				<button className="btn btn-danger mb-3">
 					Limpiar todas las tareas
 				</button>
 			</div>
