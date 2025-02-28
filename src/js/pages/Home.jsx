@@ -70,8 +70,22 @@ const Home = () => {
 		}
 	}
 
+	const deleteAllTasks = async () => {
+		try {
+			for (const task of tasks){
+			const response = await fetch(`${API_URL}/todos/${task.id}`,
+				{ method: "DELETE", });
+			if (!response.ok) {
+				throw new Error(`Errpr HTTP! Estado:${response.status}`);
+//VALE AQUI TENIA UN PROBLEMA QUE NO SABIA COMO ELIMINAR TODAS A LA VEZ Y CON UN BUCLE FOR PUDE SOLUCIONARLO (lo vi de refilon en un blog no me acuerdo cual pero creo que así estaría nose )
+//pq claro metiendo el method dentro entieno que se hace individualemten y se boprran todas las tareas una por una 
+			}} setTasks(() => [])
+		} catch(error) {
+			console.error("hubo algun problema con la aliminación de todas las")
+		}
 
-	
+	}
+
 	// una simple fuinción .filter para que borre la tarea cuando la queramos eliminar 
 	return (
 		<>
@@ -79,7 +93,7 @@ const Home = () => {
 				<h1 className="mb-4">  Gestor de tareas</h1>
 				<Taskform onAddTask={addTasks} />
 				<TaskList tasks={tasks} onDelete={handleDelete} />
-				<button className="btn btn-danger mb-3 ">
+				<button className="btn btn-danger mb-3" onClick={deleteAllTasks}>
 					Limpiar todas las tareas
 				</button>
 			</div>
